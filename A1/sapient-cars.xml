@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+  - File: sapient-cars.xml
+  - Author: Jacob Boyce
+  - Date Created: 19/8/2021
+  -
+  - This document should contain a list of cars which primary feature is its sapient AI. These 
+  - cars are typically extremely expensive and contain many 'out there' and 'extraordinary' features
+  - that can only be managed by sapient AI such as infinite capacity or battery duration. 
+-->
+
+<!DOCTYPE cars [
+    <!-- Autonomous systems have a model and a type-->
+    <!-- The most common models are listed below and the types are
+         normal, advanced and sapient-->
+    <!-- Most common AI's -->
+    <!ENTITY autoB "luxcar Auto AI 35B">
+    <!ENTITY autoA "woke-inc auto-AI 72C">
+    <!ENTITY autoC "mega-corp c3264527 AAA">
+
+    <!-- Which category of car is represented in the document-->
+    <!ATTLIST cars type (family|normal|flying|sapient|sports|luxury) #REQUIRED>
+    <!ELEMENT cars (car*)>
+    <!ELEMENT car (type,cost,capacity,safety,extras,coupons?,reviews?,promotional)>
+    <!-- Unique identifier for a given car in the shop-->
+    <!ATTLIST car id CDATA #REQUIRED>
+    <!-- Any information about the cars physical model
+        made a seperate category incase information such as year
+        is added in the future -->
+    <!ELEMENT type (make,model)>
+    <!ELEMENT make (#PCDATA)>
+    <!ELEMENT model (#PCDATA)>
+    <!ELEMENT cost (#PCDATA)>
+    <!-- How many people can fit inside of the vehicle at once
+        that is generally the amount of seats-->
+    <!ELEMENT capacity (#PCDATA)>
+    <!-- Self-closing element with the safety rating in stars -->
+    <!ELEMENT safety (rating)>
+    <!ELEMENT rating EMPTY>
+    <!ATTLIST rating stars (1|2|3|4|5) #REQUIRED>
+    <!ELEMENT extras (extra+)>
+    <!ELEMENT extra ((cost|mark),option)>
+    <!ELEMENT mark (#PCDATA)>
+    <!-- An option is an addition for a car, for example, the car is pained black or white, 
+         or the car is electric, or if it has AI etc etc -->
+    <!ELEMENT option ((electric|flight|ai|paint))>
+    <!-- Whether the car is electric or not and if it is
+         electric the specifications of the electric vehicle
+         electric vehicles can have multiple batteries
+         Note - electric vehicles arent a special type of vehicle
+         it is just a feature for a vehicle--> 
+    <!ELEMENT electric (battery+,range)>
+    <!ELEMENT paint (color)>
+    <!ELEMENT color (#PCDATA)>
+    <!ELEMENT cover (#PCDATA)>
+    <!ELEMENT battery (#PCDATA)>
+    <!ELEMENT range (#PCDATA)>
+    <!-- Whether the car can or cannot fly and if it can fly
+        specifications about the flying vehicle-->
+    <!ELEMENT flight (wing-span,turbo-jet?)>
+    <!-- The wingspan of the flying car-->
+    <!ELEMENT wing-span (#PCDATA)>
+    <!-- Whether the flying car has or has not a turbo-jet-->
+    <!ELEMENT turbo-jet EMPTY> 
+    <!ELEMENT ai (#PCDATA)>
+    <!ATTLIST ai type (normal | advanced | sapient) #REQUIRED>
+    <!ELEMENT coupons (coupon*)>
+    <!-- Coupon expanded out incase more info about a coupon
+         is needed in the future-->
+    <!ELEMENT coupon (code,reduction)>
+    <!ELEMENT reduction (#PCDATA)>
+    <!ELEMENT code (#PCDATA)>
+    <!--Reviews are their own category incase more review info is needed in the future
+        and it gives the flexibility to add more info to a given review -->
+    
+    <!ELEMENT reviews (review*)>
+    <!ELEMENT review (rating,comment)>
+    <!-- Unique id to identify a given review-->
+    <!ATTLIST review id CDATA #REQUIRED>
+    <!ELEMENT comment (#PCDATA)>
+    <!ELEMENT promotional (picture,manufacturer)>
+    <!ELEMENT picture (#PCDATA)>
+    <!ELEMENT manufacturer (#PCDATA)>
+
+]>
+
+<!-- This represents non-flying but fully sapient vehicles -->
+<cars type = "sapient">
+    <car id="C00100"> 
+        <type>
+            <make>woke-inc</make>
+            <model>Conscious</model>
+        </type>
+        <cost>$10000000</cost>
+        <!-- The vehicle is bigger inside than out -->
+        <capacity>35</capacity>
+        <safety>
+            <rating stars = "5"/>
+        </safety>
+        <extras>
+            <extra>
+                <cost>300000</cost>
+                <option>
+                    <electric>
+                        <battery>FUSION 300MW 10MV</battery>
+                        <range>30000km</range>
+                    </electric>
+                </option>
+            </extra>
+            <extra>
+                <cost>300000</cost>
+                <option>
+                    <ai type="sapient">&autoA;</ai>
+                </option>
+            </extra>
+        </extras>
+        <coupons>
+            <coupon>
+                <code>S30414</code>
+                <reduction>$30000</reduction>
+            </coupon>
+            <coupon>
+                <code>S349308mF</code>
+                <reduction>$30000</reduction>
+            </coupon>
+        </coupons>
+        <reviews>
+            <review id = "RS001000-00001">
+                <rating stars = "5"/>
+                <comment>Excellent Vehicle</comment>
+            </review>
+            <review id = "RS001000-00002">
+                <rating stars = "5"/>
+                <comment>10/10 would buy again</comment>
+            </review>
+        </reviews>
+        <promotional>
+            <picture>images/cars/wke-inc_conscious.jpg</picture>
+            <manufacturer>https://woke-inc/conscious</manufacturer>
+        </promotional>
+    </car>
+    <car id="C00101"> 
+        <type>
+            <make>Terracat</make>
+            <model>Woke</model>
+        </type>
+        <cost>$1000000000</cost>
+        <!-- Inside is also bigger than outside-->
+        <capacity>4000</capacity>
+        <safety>
+            <rating stars = "5"/>
+        </safety>
+        <extras>
+            <extra>
+                <cost>90000000</cost>
+                <option>
+                    <electric>
+                        <battery>Forever Quantum Field Manipulator Reactor</battery>
+                        <battery>10000000 GW Anti-matter Backup reactor</battery>
+                        <range>∞</range>
+                    </electric>
+                </option>
+            </extra>
+            <extra>
+                <cost>3000000</cost>
+                <option>
+                    <ai type="sapient">&autoC;</ai>
+                </option>
+            </extra>
+        </extras>
+        <reviews>
+            <review id = "0">
+                <rating stars = "5"/>
+                <comment>Best Intergalatic all-terrain vehicle!</comment>
+            </review>
+            <review id = "0">
+                <rating stars = "3"/>
+                <comment>
+                    Very pricey and it doesn't even include flight? It performs above
+                    and beyond other vehicles however the fact that they did not include
+                    flight is a questionable decision at best
+                </comment>
+            </review>
+        </reviews>
+        <promotional>
+            <picture>images/cars/sapient/terracat_woke.jpg</picture>
+            <manufacturer>https://terracat/woke</manufacturer>
+        </promotional>
+    </car>
+    <car id="C00102"> 
+        <type>
+            <make>UoN</make>
+            <model>Experimental-01A</model>
+        </type>
+        <cost>$1000000000</cost>
+        <capacity>∞</capacity>
+        <safety>
+            <rating stars = "1"/>
+        </safety>
+        <extras>
+            <!-- either or modifier, mark beign the or-->
+            <extra>
+                <cost>9999999</cost>
+                <option>
+                    <ai type="sapient">UoN-Singularity</ai>
+                </option>
+            </extra>
+
+        </extras>
+        <promotional>
+            <picture>images/cars/uon_experimental.jpg</picture>
+            <manufacturer>https://www.newcastle.edu.au/sapience/vehicles/experimental</manufacturer>
+        </promotional>
+    </car>
+</cars>

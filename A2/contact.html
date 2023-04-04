@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+
+<!--
+  - Shows all of the contacts to Jim in the webpage
+  - File: contact.html 
+  - Author: Jacob Boyce
+  - Date Created: 29/9/2021
+  - 
+  - The contact page is a small page showcasing all of the ways to contact jim. It should be concise and clearly
+  - describe how to contact jim, how they are contacting jim, all of the methods to contact jim and the actual contact 
+  - address whether that be email or phone or the office. This should also be easily expandable incase more contact methods
+  - are adding in the future.
+-->
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Insert other meta-tags here for SEO-->
+        <title>Jim's - Contact Us</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+
+        <!-- Document level style -->
+        <style>
+            address {
+                font-weight: bold;
+            }
+            /* Additional styling for grid containers on this webpage
+             * 3 rows of 300px width with a 50px width gap between contact panel. 
+               Each symbol is quite small and the highlight should be the text. 
+             */
+            .grid-container {
+                grid-template-columns: 300px 300px 300px;
+                padding: 30px;
+                grid-gap: 50px 25px;
+                padding: 30px;
+            }
+            
+            .contact-image {
+                width: 75px;
+            }
+
+            .contact-buffer {
+                padding: 10em;
+            }
+            
+            .grid-item p {
+                margin: 10px;
+            }
+
+        
+
+        </style>
+    </head>
+    <!-- I would have all style in the CSS but im forced to put a couple of tags inline on the HTML-->
+    <body> 
+        <!-- The page heder for now only contains the website navbar. This could potentially be expanded to have some notification underneath
+             if that is required. The main feature of the header is that it is fixed. -->
+
+            
+        <header class = "header-fixed">
+            <div class = "header-navbar">
+                <!-- Logo image links back to the homepage-->
+                <a href="index.html"><img src="images/logo.png" class="brand" alt = "home" style="width: 100px; height:60px; left: 1cm;"></a>
+                <nav class = "nav-list">
+                    <ul>
+                        <!-- Sample list of links. Most of them do not work or even belong to the sitemap but they are there
+                             for the prototype simply to display to populate the navbar with placeholders for the prototype-->
+                        <li><a href="flying-cars.xml">Flying</a></li>
+                        <li><a href="sapient-cars.xml">Sapient</a></li>
+                        <li><a href="sale.html">Sale</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="privacy.html">Privacy</a></li>
+                        <li><a href="conditions.html">Terms &#38; Conditions</a></li>
+                        <li></li>
+                    </ul>
+                </nav>
+            </div>
+        </header> 
+
+        <div class = "buffer"></div>
+
+        <!-- The main part of the website, this contains all of the important information such as the customer welcome text
+             and other paragraphs marketting our service. -->
+
+        <!--
+            The intro is simply an area of gray with a level one heading. 
+        -->            
+
+        <main>
+            <section id = "intro">
+                <div class = "sect">
+                    <h1>Contacting Jim</h1>
+                    <p>How to Contact Us</p>
+                </div>
+                <div id="media-background">
+                    
+                </div>
+            </section>
+            <!-- 
+                To fulfill the easily expandable requirement a grid is implemented with panels showing the contact details
+                Every time a new contact is added the releveant symbol and info can be added in a new grid panel 
+            -->
+
+            <!-- Each panel has the following format
+                 <img> symbol </img>
+                 <p><strong>COntact Method</strong></p>
+                 <p class="text-light">Accompanying Text</p>
+                  <p><a>Actual Info</a></p>-->
+
+            <section id = "contact-grid">
+                <div class = "grid-container">
+                    <!-- Phone, Email, Address, -->
+                    <!-- Phone Contact Panel-->
+                    <div class="grid-item">
+                        <!-- Image -->
+                        <img src="images/symbols/phone-symbol.png" alt="phone symbol" class="contact-image"/>
+                        <p><strong>Phone</strong></p>
+                        <p class="text-light"><em>Avaliable only 9-5PM on Business Days.</em></p>
+                        <p><a>0491 570 156</a></p>
+                    </div>
+                    <!-- Email Contact Panel-->
+                    <div class="grid-item">
+                        <img src="images/symbols/Email.png" alt="email symbol" class="contact-image"/>
+                        <p><strong>Email</strong></p>
+                        <p class="text-light"><em>Contact one of our support agents anytime.</em></p>
+                        <p><a href="mailto:contact@jimscars.com.au">contact@jimscars.com.au</a></p>
+                    </div>
+                    <!-- Office Contact Panel-->
+                    <div class="grid-item">
+                        <img src="images/symbols/mail.png" alt="mail symbol" class="contact-image"/>
+                        <p><strong>Office</strong></p>
+                        <p class="text-light"><em>Avaliable only 9-5PM on Business Days.</em></p>
+                        <p><a>
+                            Jim's Cars <br>
+                            123 Sesame Avenue <br>
+                            Sesame Street, Queensland 0000 <br>
+                            Australia <br>
+                        </a></p>
+                    </div>
+                </div>
+            </section>
+        </main> 
+        <div class = "buffer"></div>
+        <!-- End footer with copyright, contact and support information
+             This simply has a block of lines with smaller text that is less visible
+             as most readers do not care about this information-->
+        <footer>
+            <div class="copyright">
+                <p>&copy; 2021-2021 Copyright Jacob Boyce; All rights reserved.</p>
+                <p>Jacob Boyce, University of Newcastle</p>
+                <p>&#128231; <a href="mailto:c3264527@uon.edu.au">c3264527@uon.edu.au</a></p>
+            </div>
+        </footer>
+    </body>
+</html>

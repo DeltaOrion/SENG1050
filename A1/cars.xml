@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+  - Template DTD AND XML
+  - File: cars.xml
+  - Author: Jacob Boyce
+  - Date Created: 19/8/2021
+-->
+
+<!-- DTD Template -->
+
+<!DOCTYPE cars [
+    <!-- Autonomous systems have a model and a type-->
+    <!-- The most common models are listed below and the types are
+         normal, advanced and sapient-->
+    <!-- Most common AI's -->
+    <!ENTITY autoB "luxcar Auto AI 35B">
+    <!ENTITY autoA "woke-inc auto-AI 72C">
+    <!ENTITY autoC "mega-corp c3264527 AAA">
+
+    <!-- Which category of car is represented in the document-->
+    <!ATTLIST cars type (family|normal|flying|sapient|sports|luxury) #REQUIRED>
+    <!ELEMENT cars (car*)>
+    <!ELEMENT car (type,cost,capacity,safety,extras,coupons?,reviews?,promotional)>
+    <!-- Unique identifier for a given car in the shop-->
+    <!ATTLIST car id CDATA #REQUIRED>
+    <!-- Any information about the cars physical model
+        made a seperate category incase information such as year
+        is added in the future -->
+    <!ELEMENT type (make,model)>
+    <!ELEMENT make (#PCDATA)>
+    <!ELEMENT model (#PCDATA)>
+    <!ELEMENT cost (#PCDATA)>
+    <!-- How many people can fit inside of the vehicle at once
+        that is generally the amount of seats-->
+    <!ELEMENT capacity (#PCDATA)>
+    <!-- Self-closing element with the safety rating in stars -->
+    <!ELEMENT safety (rating)>
+    <!ELEMENT rating EMPTY>
+    <!ATTLIST rating stars (1|2|3|4|5) #REQUIRED>
+    <!ELEMENT extras (extra+)>
+    <!ELEMENT extra ((cost|mark),option)>
+    <!ELEMENT mark (#PCDATA)>
+    <!-- An option is an addition for a car, for example, the car is pained black or white, 
+         or the car is electric, or if it has AI etc etc -->
+    <!ELEMENT option ((electric|flight|ai|paint))>
+    <!ATTLIST option id CDATA #REQUIRED>
+    <!-- Whether the car is electric or not and if it is
+         electric the specifications of the electric vehicle
+         electric vehicles can have multiple batteries
+         Note - electric vehicles arent a special type of vehicle
+         it is just a feature for a vehicle--> 
+    <!ELEMENT electric (battery+,range)>
+    <!ELEMENT paint (color)>
+    <!ELEMENT color (#PCDATA)>
+    <!ELEMENT cover (#PCDATA)>
+    <!ELEMENT battery (#PCDATA)>
+    <!ELEMENT range (#PCDATA)>
+    <!-- Whether the car can or cannot fly and if it can fly
+        specifications about the flying vehicle-->
+    <!ELEMENT flight (wing-span,turbo-jet?)>
+    <!-- The wingspan of the flying car-->
+    <!ELEMENT wing-span (#PCDATA)>
+    <!-- Whether the flying car has or has not a turbo-jet-->
+    <!ELEMENT turbo-jet EMPTY> 
+    <!ELEMENT ai (#PCDATA)>
+    <!ATTLIST ai type (normal | advanced | sapient) #REQUIRED>
+    <!ELEMENT coupons (coupon*)>
+    <!-- Coupon expanded out incase more info about a coupon
+         is needed in the future-->
+    <!ELEMENT coupon (code,reduction)>
+    <!ELEMENT reduction (#PCDATA)>
+    <!ELEMENT code (#PCDATA)>
+    <!--Reviews are their own category incase more review info is needed in the future
+        and it gives the flexibility to add more info to a given review -->
+    
+    <!ELEMENT reviews (review*)>
+    <!ELEMENT review (rating,comment)>
+    <!-- Unique id to identify a given review-->
+    <!ATTLIST review id CDATA #REQUIRED>
+    <!ELEMENT comment (#PCDATA)>
+    <!ELEMENT promotional (picture,manufacturer)>
+    <!ELEMENT picture (#PCDATA)>
+    <!ELEMENT manufacturer (#PCDATA)>
+
+]>
+<!-- XML TEMPLATE - Includes all Tags -->
+<cars type = "flying">
+    <car id=""> 
+        <type>
+            <make></make>
+            <model></model>
+        </type>
+        <cost></cost>
+        <capacity></capacity>
+        <safety>
+            <rating stars = "5"/>
+        </safety>
+        <extras>
+            <extra>
+                <cost>10000</cost>
+                <option id = "">
+                    <electric>
+                        <battery></battery>
+                        <range></range>
+                    </electric>
+                </option>
+            </extra>
+        </extras>
+        <coupons>
+            <coupon>
+                <code></code>
+                <reduction></reduction>
+            </coupon>
+        </coupons>
+        <reviews>
+            <review id = "0">
+                <rating stars = "5"/>
+                <comment></comment>
+            </review>
+        </reviews>
+        <promotional>
+            <picture></picture>
+            <manufacturer></manufacturer>
+        </promotional>
+    </car>
+</cars>

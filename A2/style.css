@@ -1,0 +1,396 @@
+/*
+  - Primary Landing page of the Jim's Cars Website  
+  - File: stylesheet.css
+  - Author: Jacob Boyce
+  - Date Created: 20/8/2021
+  - 
+  - As the home page of jims car this page should be aesthetically pleasing, welcome the user
+  - feel alive and advertise Jim's products to users. 
+*/
+
+/*
+ - CSS variables for common or important values such as the page margins, main text colors, 
+- fonts , background colors etc etc. 
+*/
+:root {
+    /* Text Colors including the jim green from the logo */
+    --green: #007b3c;
+    --text-normal: #292929;
+    --text-light: #5e5e5e;
+    /* Two important background colors */
+    --background-normal: white;
+    --background-dark: #f7f7f7;
+    /* Primary font used for text */
+    --main_font: 'Calibri', 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', 'sans-serif';
+    --margin: 1cm;
+    /* As the whole page has a margin of 1cm as instructed in the brief to have something take up the entire page
+       such as the hero the margin has to be set back by 2* the margin in */
+    --correct-margin-for-full: -2cm;
+    --paragraph-spacing: 7em;
+    --floating-image-width: 35%;
+    --floating-image-margin: 3em;
+}
+            
+.floating-paragraph-image-right {
+    width: 35%;
+    height: auto;
+    float: right;
+    vertical-align: middle;
+    margin-left: 3em;
+    margin-top: 3em;
+}
+
+.floating-paragraph-image-left {
+    width: clamp(300px, 35%, 700px);;
+    height: auto;
+    float: left;
+    vertical-align: middle; 
+    margin-right: 3em;
+    margin-top: 3em;
+}
+
+/* Settings for the entire page */
+
+body,html {
+    height: 100%;
+    font-family: var(--main_font);
+    color: var(--text-normal);
+    background-color: var(--background-normal);
+    font-size: 22px;
+    margin-left: 1cm;
+    margin-right: 0;
+}
+ 
+/* Styling that applies to a specific element noi matter where it is in the page */
+
+/* H1 is an extremely large centered text font currently only used on the hero */
+
+h1 {
+    
+    /*font-size: 96px;*/
+    
+    font-size: 4.4em;
+    margin: 10px 0px;
+    text-transform: uppercase;
+}
+
+/* H3 is the large centered subtitle font primarly used on the hero */
+
+h3 {
+    font-size: 30px;
+    color: gray;
+    text-transform: uppercase;
+}
+
+
+h4 {
+    text-decoration: underline;
+    font-weight: bold;
+    font-size: 24px;
+    margin: 10px 0px;
+    color: var(--green);
+}
+
+/* Underlined sub-heading text used for the majority of sections or articles on the page */
+
+h2 {
+    text-decoration: underline;
+    font-size: 60px;
+    color: var(--green);
+    text-transform: uppercase;
+}
+
+/* Primary styling options for generic text on the page */
+
+p {
+    text-align: justify;
+    font-size: 22px;
+    margin-right: 1cm;
+}
+
+.light-text {
+    color: var(--text-light);
+}
+
+/* Styling options mostly for links inside of paragraphs */
+
+a {
+    color: var(--green);
+    font-weight: bold;
+}
+
+/* Styling options used for quotes on the page, it has a different font to look nicer.  */
+
+blockquote {
+    font-size: 40px;
+    font-style: italic;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+/* The header and navbar is fixed to the to of the website no matter if the user scrolls
+   It is also fitted ontop of any background elements.  */
+
+.header-fixed {
+    position: fixed;  
+    width: 100%;
+    top: 0;
+    left: 0;
+    /* Adds a small shaddow style underneath the bar for smoother transitions*/
+    box-shadow: 0 0.5em 0.375em -0.375em #999;
+    background-color: white;
+    z-index: 1;
+}
+
+.buffer {
+    padding: 1em;
+}
+
+/* This is the small logo link at the top of the screen in the header. This could also be used for any
+   other instance of the brand */
+
+.brand {
+    display: block;
+    position: absolute;
+    outline: 1px solid transparent;
+    padding: 5px;
+    outline-offset: -1px;
+}
+
+/* For any elements that take up the entire screen this corrects the page margin back */
+
+.quote, .copyright {
+    margin-left: var(--correct-margin-for-full);
+    margin-right: 0;
+}
+
+/*  Stlying Options for the navigation bar*/
+.nav-list {
+    /* any content that is outside of the nav-bars box will be hidden from view*/
+    overflow: hidden;
+}
+
+/* The nav-bar is comprised of an unordered list of links. The bullet points are removed and the 
+   list is displayed inline  */
+.nav-list ul {
+    text-align: center;
+    list-style: none;
+    /*Styling options for the items on the navbar*/
+}
+
+.nav-list li {
+    display: inline;
+}
+/* Styling options for each link. On hover the links should grow and underline
+   The visited and non-visited colors should be different. When a link is clicked (active)
+   it should also change color*/
+.nav-list a {
+    display: inline-block;
+    padding: 10px;
+    font-family: var(--main_font);
+    text-decoration: none;
+    height: auto;
+}
+
+.nav-list a:link {
+    color: var(--text-light);
+}
+
+.nav-list a:visited {
+    color: black;
+}
+
+.nav-list a:hover {
+    font-size: 110%;
+    text-decoration: underline;
+}
+
+a:hover {
+    font-size: 110%;
+}
+
+
+.nav-list a:active {
+    color: var(--green);
+}
+/* Hero banner takes up the entire launch screen no matter the device. The image should be centered */
+
+/* Styling options for the heading text ontop of the hero banner.The text should be 
+   in the center near but below the navbar.  */
+
+div.heading-title {
+    position: absolute;
+    text-align: center;
+    top: 15%;
+    width: 100%;
+}
+
+/* Styling options for most pargraph articles on the webpage. Each article should have a considerable amount of space
+   between the next to improve readability and any overflow should always be visible.  */
+
+.generic-paragraph {
+    padding-top: var(--paragraph-spacing);
+    padding-bottom: var(--paragraph-spacing);
+    overflow: visible;
+}
+
+.technical-paragraph {
+    margin: 0 0 12.5px;
+    overflow: visible;
+}
+
+.generic-paragraph p, h2 {
+    display: block;
+}
+
+/* Welcome text is larger than the over pargraphs */
+
+p.welcome-text {
+    font-size: 24px;
+}
+
+/* Quote Background is a slightly different color. and it has some extra padding is around it to have more 'background' */
+
+.quote {
+    background-color: var(--background-dark);
+    background-position: center;
+    padding: 10% 15%;
+}
+
+.sect {
+    background-color: var(--background-dark);
+    background-position: center;
+    padding: 50px;
+    margin-right: 0;
+    margin-left: var(--correct-margin-for-full);
+}
+
+/* Styling options for the list of cars */
+
+/* Add some buffer between the previous and the next element to improve readability  */
+
+.block {
+    padding-top: var(--paragraph-spacing);
+    padding-bottom: var(--paragraph-spacing);    
+}
+
+
+/*  The list of cars should be a list of links to 3 relevant cars. The list should contain an image floating to the left, followed by the title of the vehicle
+    and some marketting or descriptive text for the vehicle.
+     */
+
+.display-cars ul {
+    list-style: none;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+.display-cars li {
+    display: flex;
+}
+
+/* The title of each car. This is green and is pronounced by being bold */
+
+.display-cars-title {
+    font-weight: bold;
+    color: var(--green);
+}
+
+/* The clamp keyword takes an image and scales it depending on the viewport.
+   for this image the prefered size is 30% of the screen however it may 
+   not take up less than 300px or more than 500px */
+
+/* The car images should float to the left*/
+
+.display-cars-img {
+    width: clamp(200px, 30%, 500px);
+    margin: 0em 1em;
+    float: left;
+    height: auto;
+}
+
+.display-cars a {
+    text-decoration: none;
+    padding: 1em;
+}
+/* When the user hovers over each product the background changes color prompting them to view 
+   it furthur */
+.display-cars a:hover {
+    background-color: var(--background-dark);
+}
+
+.display-cars-txt {
+    color: var(--text-normal);
+}
+
+/* Copyright footer should have a different background color, and should act as a banner across the entire screen. */
+
+.copyright {
+    background-color: var(--background-dark);
+    background-position: center;
+    padding: 1em;
+    margin-left: -2cm;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+/* Copyright text should be smaller and less visible as it is unimportant to most readers.
+    it should also be aligned to the right as of the brief.  */
+
+.copyright p {
+    text-align: right;
+    color: var(--text-light);
+    font-size: 16px;
+}
+
+
+.grid-container {
+    display: grid;
+  }
+  
+.grid-item {
+    color: var(--text-normal);
+    border: 1px solid var(--text-light);
+    padding: 20px;
+    text-align: center;
+}
+
+.grid-item p {
+    text-align: center;
+}
+
+.hero-image-half {
+    height: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+  }
+
+fieldset {
+    margin-right: 1cm;
+}
+
+input[type=text], select {
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font: var(--main_font)
+}
+
+textarea {
+    width: 50%;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    resize: none;
+    font-family: var(--main_font);
+  }

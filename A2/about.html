@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+
+<!--
+  - Tells a story about Jim's Cars as a company. 
+  - File: about.html
+  - Author: Jacob Boyce
+  - Date Created: 20/8/2021
+  - 
+  - The about us page is an extremely important page which should draw the customer in by letting them know
+    who we are, what we are, what our mission is, what we stand for and how we have positively impacted the world
+    through our history. It also needs to be highly readable and visual for modern attention spans. 
+-->
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Insert other meta-tags here for SEO-->
+        <title>Jim's - About us</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+
+        <!-- Document level style -->
+        <style>
+            
+        </style>
+    </head>
+    <!-- I would have all style in the CSS but im forced to put a couple of tags inline on the HTML-->
+    <body> 
+        <!-- The page heder for now only contains the website navbar. This could potentially be expanded to have some notification underneath
+             if that is required. The main feature of the header is that it is fixed. -->
+
+            
+        <header class = "header-fixed">
+            <div class = "header-navbar">
+                <!-- Logo image links back to the homepage-->
+                <a href="index.html"><img src="images/logo.png" class="brand" alt = "home" style="width: 100px; height:60px; left: 1cm;"></a>
+                <nav class = "nav-list">
+                    <ul>
+                        <!-- Sample list of links. Most of them do not work or even belong to the sitemap but they are there
+                             for the prototype simply to display to populate the navbar with placeholders for the prototype-->
+                        <li><a href="flying-cars.xml">Flying</a></li>
+                        <li><a href="sapient-cars.xml">Sapient</a></li>
+                        <li><a href="sale.html">Sale</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="privacy.html">Privacy</a></li>
+                        <li><a href="conditions.html">Terms &#38; Conditions</a></li>
+                        <li></li>
+                    </ul>
+                </nav>
+            </div>
+        </header> 
+
+        <div class = "buffer"></div>
+
+        <!-- The main part of the website, this contains all of the important information such as the customer welcome text
+             and other paragraphs marketting our service. -->
+        <main>
+            <!-- Header which is simply an area with a gray background which a level 1 heading  -->
+            <div class="sect">
+                <h1>About Us</h1>
+            </div>
+
+            <!-- To meet the design objectives of the webpage there are 3 main paragraphs, each with an image and an accompanying level 2 heading. The main
+                 highlight is the images and the headings which people will proccess much quicker. Each paragraph is thoroughly seperated to ensure that
+                 the page is more readable and is neatly sectioned off with the most important info at the top and less important info lower down. -->
+
+            <!-- Our Mission Paragraph-->
+            <article class="generic-paragraph">
+                <figure>
+                    <img src="images/about-us/about-us-car.webp" alt="Generic Car" class = "floating-paragraph-image-right">
+                </figure>
+                <h2>Our Mission</h2>
+                <p class="welcome-text">Lorem ipsum dolor sit amet, consectetur <em>adipiscing elit,</em> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                    Nisl nunc mi ipsum faucibus. In vitae turpis massa sed elementum tempus egestas sed. Viverra <abbr title="Universal Tech">ut</abbr> sagittis eu volutpat odio facilisis mauris sit.
+                    Id ornare arcu odio <abbr title="Universal Tech">ut</abbr> sem nulla pharetra diam sit. Venenatis cras sed felis eget. Eu nisl nunc mi ipsum faucibus vitae. Id consectetur purus ut
+                    faucibus pulvinar elementum integer. Aliquet <abbr title = "Notorious Experimental Car">nec</abbr> ullamcorper sit amet risus nullam eget felis eget. Ullamcorper malesuada proin libero nunc consequat. 
+                    Semper viverra nam <em>libero</em> justo laoreet sit amet.</p>
+            </article>
+            <!-- Our Story Paragraph-->
+            <article class = "generic-paragraph">
+                <figure>
+                    <img src="images/about-us/about-us-jim.jpg" alt="Image of our founder jim" class = "floating-paragraph-image-left">
+                </figure>
+                <h2>Our Story</h2>
+                <p>Quisque id diam vel quam <strong>elementum pulvinar etiam.</strong> Pretium lectus quam id leo in vitae turpis massa.
+                    Commodo elit at imperdiet dui accumsan. Lorem mollis aliquam ut porttitor. Morbi tempus iaculis urna id volutpat. 
+                    Risus at ultrices mi tempus. Faucibus nisl tincidunt eget nullam non. Nunc mi ipsum faucibus vitae.
+                    Aliquam ut porttitor leo a diam sollicitudin tempor. Viverra justo <abbr title = "Notorious Experimental Car">nec</abbr> ultrices dui sapien eget mi proin. 
+                    Viverra ipsum nunc aliquet bibendum enim facilisis gravida neque convallis. Ullamcorper sit amet risus nullam eget. 
+                    Et malesuada fames ac turpis egestas integer. Nisi vitae suscipit tellus mauris a diam maecenas sed enim. Laoreet non curabitur gravida arcu. 
+                    Amet massa vitae tortor condimentum lacinia quis vel eros donec. Enim nec dui nunc mattis. Montes nascetur ridiculus mus mauris.</p>
+            </article>
+
+            <!-- Our History Paragraph-->
+            <article class = "generic-paragraph">
+                <figure>
+                    <img src="images/about-us/timeline.png" alt="Timeline of Jim's Cars" class = "floating-paragraph-image-right">
+                </figure>
+                <h2>Our History</h2>
+                <p>Quisque id diam vel quam elementum pulvinar etiam. Pretium lectus quam id leo in vitae turpis massa.
+                    Commodo elit at imperdiet dui accumsan. Lorem mollis aliquam ut porttitor. Morbi tempus iaculis urna id volutpat. 
+                    Risus at ultrices mi tempus. Faucibus nisl tincidunt eget nullam non. Nunc mi ipsum faucibus vitae.
+                    Aliquam ut porttitor leo a diam sollicitudin tempor. Viverra justo nec ultrices dui sapien eget mi proin. 
+                    Viverra ipsum nunc aliquet bibendum enim facilisis gravida neque convallis. Ullamcorper sit amet risus nullam eget. 
+                    Et malesuada fames ut <a href="https://uonline.newcastle.edu.au/bbcswebdav/pid-5199823-dt-content-rid-29724999_1/courses/CRS.134585.2021.S2/Assignment1/Assignment_1.html">turpis</a> egestas integer. Nisi vitae suscipit tellus mauris a diam maecenas sed enim. Laoreet non curabitur gravida arcu. 
+                    Amet massa vitae tortor condimentum lacinia quis vel eros donec. Enim nec dui nunc mattis. Montes nascetur ridiculus mus mauris.</p>
+            </article>
+        </main>
+        <!-- End footer with copyright, contact and support information
+             This simply has a block of lines with smaller text that is less visible
+             as most readers do not care about this information-->
+        <footer>
+            <div class="copyright">
+                <p>&copy; 2021-2021 Copyright Jacob Boyce; All rights reserved.</p>
+                <p>Jacob Boyce, University of Newcastle</p>
+                <p>&#128231; <a href="mailto:c3264527@uon.edu.au">c3264527@uon.edu.au</a></p>
+            </div>
+            
+        </footer>
+    </body>
+</html>

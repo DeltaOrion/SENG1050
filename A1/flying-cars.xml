@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+  - File: flying-cars.xml
+  - Author: Jacob Boyce
+  - Date Created: 19/8/2021
+  -
+  - This document describes a list of flying cars offered by Jim's Cars. Any car here should have some
+  - ability to fly and the primary feature of these vehicles is their ability to fly and go on land. 
+-->
+
+<!DOCTYPE cars [
+    <!-- Autonomous systems have a model and a type-->
+    <!-- The most common models are listed below and the types are
+         normal, advanced and sapient-->
+    <!-- Most common AI's -->
+    <!ENTITY autoB "luxcar Auto AI 35B">
+    <!ENTITY autoA "woke-inc auto-AI 72C">
+    <!ENTITY autoC "mega-corp c3264527 AAA">
+
+    <!-- Which category of car is represented in the document-->
+    <!ATTLIST cars type (family|normal|flying|sapient|sports|luxury) #REQUIRED>
+    <!ELEMENT cars (car*)>
+    <!ELEMENT car (type,cost,capacity,safety,extras,coupons?,reviews?,promotional)>
+    <!-- Unique identifier for a given car in the shop-->
+    <!ATTLIST car id CDATA #REQUIRED>
+    <!-- Any information about the cars physical model
+        made a seperate category incase information such as year
+        is added in the future -->
+    <!ELEMENT type (make,model)>
+    <!ELEMENT make (#PCDATA)>
+    <!ELEMENT model (#PCDATA)>
+    <!ELEMENT cost (#PCDATA)>
+    <!-- How many people can fit inside of the vehicle at once
+        that is generally the amount of seats-->
+    <!ELEMENT capacity (#PCDATA)>
+    <!-- Self-closing element with the safety rating in stars -->
+    <!ELEMENT safety (rating)>
+    <!ELEMENT rating EMPTY>
+    <!ATTLIST rating stars (1|2|3|4|5) #REQUIRED>
+    <!ELEMENT extras (extra+)>
+    <!ELEMENT extra ((cost|mark),option)>
+    <!ELEMENT mark (#PCDATA)>
+    <!-- An option is an addition for a car, for example, the car is pained black or white, 
+         or the car is electric, or if it has AI etc etc -->
+    <!ELEMENT option ((electric|flight|ai|paint))>
+    <!-- Whether the car is electric or not and if it is
+         electric the specifications of the electric vehicle
+         electric vehicles can have multiple batteries
+         Note - electric vehicles arent a special type of vehicle
+         it is just a feature for a vehicle--> 
+    <!ELEMENT electric (battery+,range)>
+    <!ELEMENT paint (color)>
+    <!ELEMENT color (#PCDATA)>
+    <!ELEMENT cover (#PCDATA)>
+    <!ELEMENT battery (#PCDATA)>
+    <!ELEMENT range (#PCDATA)>
+    <!-- Whether the car can or cannot fly and if it can fly
+        specifications about the flying vehicle-->
+    <!ELEMENT flight (wing-span,turbo-jet?)>
+    <!-- The wingspan of the flying car-->
+    <!ELEMENT wing-span (#PCDATA)>
+    <!-- Whether the flying car has or has not a turbo-jet-->
+    <!ELEMENT turbo-jet EMPTY> 
+    <!ELEMENT ai (#PCDATA)>
+    <!ATTLIST ai type (normal | advanced | sapient) #REQUIRED>
+    <!ELEMENT coupons (coupon*)>
+    <!-- Coupon expanded out incase more info about a coupon
+         is needed in the future-->
+    <!ELEMENT coupon (code,reduction)>
+    <!ELEMENT reduction (#PCDATA)>
+    <!ELEMENT code (#PCDATA)>
+    <!--Reviews are their own category incase more review info is needed in the future
+        and it gives the flexibility to add more info to a given review -->
+    
+    <!ELEMENT reviews (review*)>
+    <!ELEMENT review (rating,comment)>
+    <!-- Unique id to identify a given review-->
+    <!ATTLIST review id CDATA #REQUIRED>
+    <!ELEMENT comment (#PCDATA)>
+    <!ELEMENT promotional (picture,manufacturer)>
+    <!ELEMENT picture (#PCDATA)>
+    <!ELEMENT manufacturer (#PCDATA)>
+
+]>
+<cars type = "flying">
+    <car id="C00137"> 
+        <type>
+            <make>Tesla</make>
+            <model>Heaven</model>
+        </type>
+        <cost>10000000</cost>
+        <capacity>4</capacity>
+        <safety>
+            <rating stars = "5"/>
+        </safety>
+        <extras>
+            <extra>
+                <cost>3000</cost>
+                <option>
+                    <flight>
+                        <wing-span>3m</wing-span>
+                        <turbo-jet />
+                    </flight>
+                </option>
+            </extra>
+            <extra>
+                <cost>3000</cost>
+                <option>
+                    <electric>
+                        <battery>Antimatter 3000kV 1000 mW</battery>
+                        <battery>Fusion Backup 12000kV 100 mW</battery>
+                        <range>5ly</range>
+                    </electric>
+                </option>
+            </extra>
+            <extra>
+                <mark>M34C</mark>
+                <option>
+                    <ai type="sapient">&autoB;</ai>
+                </option>
+            </extra>
+        </extras>
+        <coupons></coupons>
+        <reviews>
+            <review id = "RC0137-00001">
+                <rating stars = "5"/>
+                <!-- Thats the most effort I will put into fake review-->
+                <comment>
+                    Would give a 6 if I could. This is the best car on the market
+                    the Sapient AI knows exactly what you want, where you want to go
+                    and why you want to go giving the best route every time. 10/10
+                    range and mileage
+                </comment>
+            </review>
+            <review id = "RC0137-00002">
+                <rating stars = "5"/>
+                <comment>10/10 best car around!!111!</comment>
+            </review>
+            <review id = "RC0137-00003">
+                <rating stars = "4"/>
+                <comment>Best interstellar car, a little pricey though!</comment>
+            </review>
+        </reviews>
+        <promotional>
+            <picture>/images/cars/flying/tesla_heaven.jpg</picture>
+            <manufacturer>https://www.tesla.com/en_au/heaven</manufacturer>
+        </promotional>
+    </car>
+    <car id="C00138"> 
+        <type>
+            <make>Woke-Inc</make>
+            <model>TW34B</model>
+        </type>
+        <cost>30000</cost>
+        <capacity>8</capacity>
+        <safety>
+            <rating stars = "2"/>
+        </safety>
+        <extras>
+            <extra>
+                <mark>M34C</mark>
+                <option>
+                    <paint>
+                        <color>BLACK</color>
+                    </paint>
+                </option>
+            </extra>
+            <extra>
+                <cost>4000</cost>
+                <option>
+                    <flight>
+                        <wing-span>2m</wing-span>
+                    </flight>
+                </option>
+            </extra>
+            <extra>
+                <cost>9999</cost>
+                <option>
+                    <ai type="normal">&autoA;</ai>
+                </option>
+            </extra>
+        </extras>
+        <coupons>
+            <coupon>
+                <code>W3334</code>
+                <reduction>$300</reduction>
+            </coupon>
+            <coupon>
+                <code>W4447B</code>
+                <reduction>$5000</reduction>
+            </coupon>
+        </coupons>
+        <reviews>
+            <review id = "RC00137-00001">
+                <rating stars = "1"/>
+                <comment>The car blew up!!!!</comment>
+            </review>
+        </reviews>
+        <promotional>
+            <picture>images/cars/flying/woke-inc_TW34B.jpg</picture>
+            <manufacturer>https://woke-inc.com/TW34B</manufacturer>
+        </promotional>
+    </car>
+
+    <car id="C00139"> 
+        <type>
+            <make>Woke-inc</make>
+            <model>Full Control</model>
+        </type>
+        <cost>100000</cost>
+        <capacity>2</capacity>
+        <safety>
+            <rating stars = "4"/>
+        </safety>
+        <extras>
+            <extra>
+                <cost>5000</cost>
+                <option>
+                    <electric>
+                        <battery>Negative Ion 12000kV 100kW</battery>
+                        <!-- An AU is an astronomical Unit, that is the distance from the earth to the sun-->
+                        <range>30 AU</range>
+                    </electric>
+                </option>
+            </extra>
+            <extra>
+                <cost>6000</cost>
+                <option>
+                    <flight>
+                        <wing-span>1m</wing-span>
+                        <turbo-jet/>
+                    </flight>
+                </option>
+                <!-- No AI for this vehicle, hence full control-->
+            </extra>
+
+        </extras>
+        <promotional>
+            <picture>images/cars/flying/woke-inc_full_control.jpg</picture>
+            <manufacturer>https://woke-inc.com/full-control</manufacturer>
+        </promotional>
+    </car>
+</cars>

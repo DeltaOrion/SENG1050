@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+
+<!--
+  - A form that users can use to sell each car
+  - File: sale.html
+  - Author: Jacob Boyce
+  - Date Created: 20/8/2021
+  - 
+  - The form is a data collection mechanism for users to sell their cars. It is essential that it is easy to fill out 
+  - and contains all relevant information to sell a car. It should then post all of the collected data to the server 
+  - where is it proccessed accordingly. It is also essential for the users sake to ensure that the data is correctly
+  - validated on the client side and for security reasons validated on the server side. 
+-->
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Insert other meta-tags here for SEO-->
+        <title>Jim's - Sell Your Car Today!</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+
+        <!-- Document level style -->
+        <style>
+            .err {
+                font-size: 16px;
+                color: gray;
+            }
+
+        </style>
+        <script src="form-validation.js"></script>
+    </head>
+    <!-- I would have all style in the CSS but im forced to put a couple of tags inline on the HTML-->
+    <body> 
+        <!-- The page heder for now only contains the website navbar. This could potentially be expanded to have some notification underneath
+             if that is required. The main feature of the header is that it is fixed. -->
+
+            
+        <header class = "header-fixed">
+            <div class = "header-navbar">
+                <!-- Logo image links back to the homepage-->
+                <a href="index.html"><img src="images/logo.png" class="brand" alt = "home" style="width: 100px; height:60px; left: 1cm;"></a>
+                <nav class = "nav-list">
+                    <ul>
+                        <!-- Sample list of links. Most of them do not work or even belong to the sitemap but they are there
+                             for the prototype simply to display to populate the navbar with placeholders for the prototype-->
+                        <li><a href="flying-cars.xml">Flying</a></li>
+                        <li><a href="sapient-cars.xml">Sapient</a></li>
+                        <li><a href="sale.html">Sale</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="privacy.html">Privacy</a></li>
+                        <li><a href="conditions.html">Terms &#38; Conditions</a></li>
+                        <li></li>
+                    </ul>
+                </nav>
+            </div>
+        </header> 
+
+        <div class = "buffer"></div>
+
+        <!-- The main part of the website, this contains all of the important information such as the customer welcome text
+             and other paragraphs marketting our service. -->
+        <main>
+            <div class="sect">
+                <h1>Sell YOUR Car</h1>
+            </div>
+
+            <section id = "form">
+                <!--
+                    The form contains two main fieldsets
+                    Firstly for the collection of personal information and secondly for the relevant information
+                    about the car so that it can be sold. The information is validated in the javascript. 
+                -->
+                <h3>Personal Details</h3>
+                <hr>
+                <form name="sale-form" onsubmit="return handleSubmit()" method="GET" action="http://jkorpela.fi/cgi-bin/echo.cgi">
+                    <fieldset>
+                        <!-- 
+                            Each text field is in the following format
+                            <label>Field label</label> what they need to enter
+                            <input>Input</input> The actual input
+                            <label>Error and Information Label</label> This label provides info to the user on which fields were
+                            incorrectly entered
+                        -->
+
+                        <!-- 
+                            If there is no relevant validation, say for dropdown menus which are self-validating then there is no error and 
+                            information label.
+                        -->
+                        <label for="fname">First name *</label>
+                        <input type="text" id="fname" name="fname" placeholder="John"> <br>
+                        <label id="fname_err" class="err">Lorem Ipsum</label><br>
+                        
+                        <label for="lname">Last name *</label>
+                        <input type="text" id="lname" name="lname" placeholder="Doe"><br>
+                        <label id="lname_err" class="err">Lorem Ipsum</label><br>
+
+                        <label for="email">Email *</label>
+                        <input type="text" id="email" name="email" placeholder="jane.doe@example.com"><br>
+                        <label id="email_err" class="err">Must be a valid email</label><br>
+
+                        <!-- Shouldnt the database keep track of this LOL-->
+                        <label for="cars-sub">Cars Submitted In Past</label>
+                        <input type="text" id="cars-sub" name="cars-sub" placeholder="5"><br>
+                        <label id="cars-sub_err" class="err">Number between 1 and 999</label><br>
+                        <label for="sold-last-5-yes">Have you sold a car in the last 5 years *</label><br>
+                        <label for="sold-last-5-yes">Yes</label>
+                        <input type="radio" id="sold-last-5-yes" name="sold-last-5" value="true">
+                        <label for="sold-last-5-no">No</label>
+                        <input type="radio" id="sold-last-5-no" name="sold-last-5" value="false"><br>
+                        <label id="sold-last-5_err" class="err"></label><br>
+                    </fieldset>
+                    <!-- Second fieldset with any relevant info about the car-->
+                    <h3>Car Info</h3>
+                    <hr>
+                    <fieldset>
+                        <!-- Which type of car they are buying-->
+                        <label for="car-cat">Car Type *</label>
+                        <select name="car-cat" id="car-cat">
+                            <option>Family</option>
+                            <option>Normal</option>
+                            <option>Flying</option>
+                            <option>Sapient</option>
+                            <option>Sports</option>
+                            <option>Luxury</option>
+                        </select><br>
+                        <!-- 1 Original Field-->
+                        <label for="cars-make">Make *</label>
+                        <input type="text" id="cars-make" name="cars-make" placeholder="Toyota"><br>
+                        <label id="cars-make_err" class="err">Valid Car manufacturer</label><br>
+                        <label for="cars-model">Model *</label>
+                        <input type="text" id="cars-model" name="cars-model" placeholder="Hilux"><br>
+                        <label id="cars-model_err" class="err">Valid Car Model</label><br>
+                        <!-- 2 Original Field-->
+                        <label for="cars-capcity">Capacity *</label>
+                        <input type="text" id="cars-capcity" name="cars-capcity" placeholder="4"><br>
+                        <label id="cars-capcity_err" class="err">Must be a number</label><br>
+                        <label for="cars-make">Description</label><br>
+                        <textarea id="description" name="description" rows="3"></textarea><br>
+                        <label id="description_err" class="err">Max 600 characters</label><br>
+                        <input type="checkbox" id="extras" name="extras" value="extras">
+                        <label for="extras">Extra's Included</label><br>
+                        <input type="checkbox" id="coupons" name="coupons" value="coupons">
+                        <label for="coupons">Coupon's Allowed</label><br>
+                        <input type="checkbox" id="electric" name="electric" value="electric">
+                        <label for="electric">Electric</label><br> 
+                    </fieldset>
+
+                    <!-- 3 Original Field-->
+                    <label for="satisfaction">Rate Your Experience with Jim's!</label><br>
+                    <label for="satisfaction">1 (Jim Bad)</label><input type="range" id="satisfaction" name="satisfaction" min="1" max="5" value="1"><label for="satisfaction">5 (Very Satisfied)</label><br>
+                    <input type="submit" value="Submit">
+                    <input type="reset" value="Clear Form">
+                </form>
+                <!-- Most styling for the form is included in the main css incase other forms are present in the website. -->
+            </section>
+        </main>
+        <!-- End footer with copyright, contact and support information
+             This simply has a block of lines with smaller text that is less visible
+             as most readers do not care about this information-->
+        <footer>
+            <div class="copyright">
+                <p>&copy; 2021-2021 Copyright Jacob Boyce; All rights reserved.</p>
+                <p>Jacob Boyce, University of Newcastle</p>
+                <p>&#128231; <a href="mailto:c3264527@uon.edu.au">c3264527@uon.edu.au</a></p>
+            </div>
+            
+        </footer>
+    </body>
+</html>
